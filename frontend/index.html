@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="icon" type="image/png" href="assets/MM-logo.png">
 <title>MM Portfolio</title>
 <meta name="description" content="Portfolio of Maegan Elaine S. Mañez, a third-year Computer Science student at Gordon College.">
+<link rel="icon" type="image/png" href="./assets/mm-logo.png?v=5">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -97,29 +97,28 @@
   <div class="container reveal">
     <h2>Featured Projects</h2>
     <p class="section-intro">Three academic projects, with my role in each.</p>
-    <div class="grid two">
+    <div class="projects-grid">
       <article class="card project featured">
-        <div class="p-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5h13a3 3 0 0 1 3 3v11H7a3 3 0 0 1-3-3z"/><path d="M8 9h8M8 13h8M8 17h4"/></svg></div>
-        <h3>The Frontline: CMS and Digital Archive<span class="badge">Featured UX Case Study</span><span class="badge soft">In Development</span></h3>
-        <dl class="meta"><div><dt>Course</dt><dd>Software Engineering 2</dd></div><div><dt>Type</dt><dd>Collaborative project, Team TriDev</dd></div><div><dt>My role</dt><dd>Design &amp; Architecture Lead and Implementation Lead</dd></div></dl>
+        <div class="p-head"><h3>The Frontline: CMS and Digital Archive</h3><div class="badges"><span class="badge">Featured UX Case Study</span><span class="badge soft">In Development</span></div></div>
+        <dl class="meta"><div><dt>Course</dt><dd>Software Engineering 2</dd></div><div><dt>Type</dt><dd>Collaborative project, Team TriDev</dd></div><div><dt>My roles</dt><dd>Design &amp; Architecture Lead and Implementation Lead</dd></div></dl>
         <p>A content management system and digital news archive for tertiary-level campus journalism. I contributed to the system architecture and worked with my teammates on both the frontend and backend. A teammate made the Figma interface designs, and we implemented them together. It is still being tested and refined.</p>
         <ul class="chips"><li>Python</li><li>Flask</li><li>Firebase Authentication</li><li>Cloud Firestore</li><li>Firebase Storage</li><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
         <div class="btn-row"><a class="btn primary" href="case-study.html">View UX Case Study</a><a class="btn ghost" href="https://softeng-jet.vercel.app/index.html?section=News" target="_blank" rel="noopener noreferrer">Live Demo</a><a class="btn ghost" href="https://github.com/max-sng/The-Frontline-CMS-and-Digital-Archive" target="_blank" rel="noopener noreferrer">GitHub</a></div>
       </article>
       <article class="card project">
-        <div class="p-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.5-3.2 8-8 9-4.8-1-8-4.5-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
-        <h3>ImpulseCheck: Spending Intervention Application</h3>
+        <h3>ImpulseCheck</h3><p class="sub">Spending Intervention Application</p>
         <dl class="meta"><div><dt>Course</dt><dd>Application Development</dd></div><div><dt>Type</dt><dd>Individual academic project</dd></div><div><dt>My role</dt><dd>Sole Developer</dd></div></dl>
         <p>A spending intervention application that encourages mindful purchasing decisions and helps users look at their spending habits. I developed it on my own, including the implementation, functionality, and integration of its components.</p>
         <!-- EDIT: add a chips list with the technologies used in this repository -->
+        <hr class="divider">
         <div class="btn-row"><a class="btn ghost" href="https://impulse-check.vercel.app" target="_blank" rel="noopener noreferrer">Live Demo</a><a class="btn ghost" href="https://github.com/MaeganManez/ImpulseCheck" target="_blank" rel="noopener noreferrer">GitHub</a></div>
       </article>
       <article class="card project">
-        <div class="p-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5"/></svg></div>
-        <h3>TUGMA: Barangay Lost-and-Found System</h3>
+        <h3>TUGMA</h3><p class="sub">Barangay Lost-and-Found System</p>
         <dl class="meta"><div><dt>Course</dt><dd>Undergraduate research</dd></div><div><dt>Type</dt><dd>Collaborative research project</dd></div><div><dt>My role</dt><dd>Research Team Member and Co-Developer</dd></div></dl>
-        <p>A community lost-and-found system for Barangay Sta. Rita, Olongapo City. It organizes reports and suggests possible matches using rule-based similarity matching, for barangay staff to verify. Our team shared the work, and I took part in both the research and the development.</p><p class="small">Research title: A Rule-Based Similarity Matching Approach for Community Lost-and-Found Item Identification</p>
+        <p>A community lost-and-found system for Barangay Sta. Rita, Olongapo City. It organizes reports and suggests possible matches using rule-based similarity matching, for barangay staff to verify. Our team shared the work, and I took part in both the research and the development.</p>
         <ul class="chips"><li>Rule-based matching</li><li>Levenshtein Distance</li></ul>
+        <hr class="divider">
         <div class="btn-row"><a class="btn ghost" href="https://tugma-barangay-system.vercel.app/#/test" target="_blank" rel="noopener noreferrer">Live Demo</a><a class="btn ghost" href="https://github.com/MaeganManez/tugma-barangay-system" target="_blank" rel="noopener noreferrer">GitHub</a></div>
       </article>
     </div>
@@ -129,7 +128,7 @@
 <section id="certificates" class="section">
   <div class="container reveal">
     <h2>Certificates</h2>
-    <p class="section-intro">Each certificate opens as a PDF in a new tab.</p>
+    <p class="section-intro">Explore my completed certifications and training.</p>
     <div class="grid three" id="certGrid"></div>
   </div>
 </section>
@@ -175,12 +174,17 @@
   <div class="modal-box">
     <div class="modal-head">
       <h2 id="certTitle"></h2>
-      <a class="btn link" id="certOpen" target="_blank" rel="noopener noreferrer">Open PDF in new tab</a>
-      <button class="icon-btn" id="certClose" type="button" aria-label="Close preview"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+      <button class="icon-btn" id="certClose" type="button" aria-label="Close certificate preview"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
     </div>
-    <object id="certObj" type="application/pdf" data="">
-      <p class="modal-fallback">This browser cannot preview the PDF here. Use the Open PDF link above.</p>
-    </object>
+    <div class="modal-body" id="certScroll" tabindex="0" aria-label="Certificate image, scrollable">
+      <img id="certImg" class="cert-img" alt="">
+    </div>
+    <div class="modal-foot">
+      <button type="button" class="btn ghost" id="certZoom" aria-pressed="false">Zoom in</button>
+      <span class="spacer"></span>
+      <a class="btn solid" id="certOpen" target="_blank" rel="noopener noreferrer">Open PDF</a>
+      <a class="btn ghost" id="certDownload" download>Download PDF</a>
+    </div>
   </div>
 </div>
 <script src="script.js"></script>

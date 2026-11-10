@@ -3,22 +3,20 @@
 
   // Add future certificates here. Place the PDF in the certificates folder.
   var certificates = [
-    { title: "HTML Essentials", file: "certificates/HTMLEssentialsv1.pdf" },
-    { title: "CSS Essentials", file: "certificates/CSSEssentialsv1.pdf" },
-    { title: "Python Essentials 1", file: "certificates/PythonEssentials1.pdf" },
-    { title: "Python Essentials 2", file: "certificates/PythonEssentials2.pdf" },
-    { title: "Fortinet Certificate", file: "certificates/FortinetCert.pdf" }
+    { title: "HTML Essentials", file: "certificates/HTMLEssentialsv1.pdf", png: "certificates/HTMLEssentialsv1-1.png" },
+    { title: "CSS Essentials", file: "certificates/CSSEssentialsv1.pdf", png: "certificates/CSSEssentialsv1-1.png" },
+    { title: "Python Essentials 1", file: "certificates/PythonEssentials1.pdf", png: "certificates/PythonEssentials1-1.png" },
+    { title: "Python Essentials 2", file: "certificates/PythonEssentials2.pdf", png: "certificates/PythonEssentials2-1.png" },
+    { title: "Fortinet Certificate", file: "certificates/FortinetCert.pdf", png: "certificates/FortinetCert-1.png" }
   ];
 
-  var docIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg>';
+  var awardIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="M8.5 14L7 22l5-3 5 3-1.5-8"/></svg>';
 
   var grid = document.getElementById("certGrid");
   (grid ? certificates : []).forEach(function (c) {
     var el = document.createElement("article");
     el.className = "card cert";
-    el.innerHTML =
-      '<div class="c-icon">' + docIcon + "</div><h3></h3>" +
-      '<button type="button" class="btn ghost">View Certificate</button>';
+    el.innerHTML = '<div class="c-icon">' + awardIcon + '</div><p class="cert-label">Certification</p><h3></h3><button type="button" class="btn solid">View Certificate</button>';
     el.querySelector("h3").textContent = c.title;
     var b = el.querySelector("button");
     b.setAttribute("aria-label", "View " + c.title);
@@ -82,29 +80,42 @@
   // Certificate modal
   var modal = document.getElementById("certModal");
   var lastFocus = null;
+  var mImg, mZoom;
+  function setZoom(on) {
+    mImg.classList.toggle("zoomed", on);
+    mZoom.setAttribute("aria-pressed", String(on));
+    mZoom.textContent = on ? "Zoom out" : "Zoom in";
+  }
   function openModal(c, trigger) {
     lastFocus = trigger;
     document.getElementById("certTitle").textContent = c.title;
-    document.getElementById("certObj").setAttribute("data", c.file);
+    mImg.alt = c.title + " certificate";
+    mImg.src = c.png;
+    setZoom(false);
     document.getElementById("certOpen").href = c.file;
+    document.getElementById("certDownload").href = c.file;
     modal.hidden = false;
     document.body.style.overflow = "hidden";
     document.getElementById("certClose").focus();
   }
   function closeModal() {
     modal.hidden = true;
-    document.getElementById("certObj").setAttribute("data", "");
+    mImg.removeAttribute("src");
     document.body.style.overflow = "";
     if (lastFocus) lastFocus.focus();
   }
   if (modal) {
+    mImg = document.getElementById("certImg");
+    mZoom = document.getElementById("certZoom");
+    mZoom.addEventListener("click", function () { setZoom(!mImg.classList.contains("zoomed")); });
+    mImg.addEventListener("click", function () { setZoom(!mImg.classList.contains("zoomed")); });
     document.getElementById("certClose").addEventListener("click", closeModal);
     modal.addEventListener("click", function (e) { if (e.target === modal) closeModal(); });
     document.addEventListener("keydown", function (e) {
       if (modal.hidden) return;
       if (e.key === "Escape") { closeModal(); return; }
       if (e.key === "Tab") {
-        var f = modal.querySelectorAll("a[href], button");
+        var f = modal.querySelectorAll('a[href], button, [tabindex="0"]');
         var first = f[0], last = f[f.length - 1];
         if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
         else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }

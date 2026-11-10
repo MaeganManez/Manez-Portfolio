@@ -35,7 +35,7 @@ svg{width:1.25rem;height:1.25rem;fill:none;stroke:currentColor;stroke-width:1.8;
 .subtitle{margin:1.25rem 0 1rem;font-size:clamp(1.1rem,2.4vw,1.5rem);font-weight:600;color:var(--accent)}
 .lead{max-width:560px;color:var(--muted);font-size:1.1rem}
 .btn-row{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:2rem;align-items:center}
-.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1.4rem;border-radius:10px;font-weight:600;font-size:.95rem;border:1px solid transparent;transition:transform .2s,background .2s,border-color .2s,color .2s}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1.4rem;border-radius:10px;font-weight:600;font-size:.95rem;background:transparent;font-family:inherit;cursor:pointer;border:1px solid transparent;transition:transform .2s,background .2s,border-color .2s,color .2s}
 .btn.primary{background:var(--accent);color:var(--on-accent)}
 .btn.primary:hover{transform:translateY(-2px)}
 .btn.ghost{border-color:var(--line);color:var(--text)}
@@ -60,15 +60,21 @@ svg{width:1.25rem;height:1.25rem;fill:none;stroke:currentColor;stroke-width:1.8;
 .chips{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.5rem}
 .chips li{padding:.3rem .8rem;border:1px solid var(--line);border-radius:999px;font-size:.88rem;color:var(--muted);background:var(--bg2)}
 .alt .chips li{background:var(--bg2)}
-.project{display:flex;flex-direction:column;align-items:flex-start}
-.project p{color:var(--muted);flex:1}
-.project .chips{margin-bottom:1.5rem}
+.projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem}
+.project.featured{grid-column:1/-1;border-color:var(--accent)}
+.project h3{font-size:1.2rem;margin:0}
+.p-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:.75rem;margin-bottom:.75rem}
+.badges{display:flex;flex-wrap:wrap;gap:.5rem}
+.sub{color:var(--muted);margin:.25rem 0 1rem!important;font-size:.95rem}
+.divider{border:0;border-top:1px solid var(--line);margin:1rem 0}
 .p-icon,.c-icon{display:grid;place-items:center;width:48px;height:48px;border-radius:12px;background:var(--bg2);color:var(--accent);margin-bottom:1.25rem}
 .alt .p-icon{background:var(--bg2)}
 .p-icon svg,.c-icon svg{width:1.5rem;height:1.5rem}
-.cert{display:flex;flex-direction:column;align-items:flex-start}
-.cert h3{margin-bottom:1.5rem}
-.cert .btn{margin-top:auto}
+.cert{display:flex;flex-direction:column;align-items:flex-start;padding:1.5rem}
+.cert h3{margin:0 0 1.25rem;font-size:1.1rem}
+.cert .c-icon{width:40px;height:40px;margin-bottom:1rem}
+.cert .c-icon svg{width:1.25rem;height:1.25rem}
+.cert-label{margin:0 0 .25rem;font-size:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
 .contact{display:flex;align-items:center;gap:1rem}
 .contact svg{width:1.6rem;height:1.6rem;color:var(--accent)}
 .contact span{display:flex;flex-direction:column;color:var(--muted);font-size:.95rem;overflow-wrap:anywhere}
@@ -99,25 +105,18 @@ svg{width:1.25rem;height:1.25rem;fill:none;stroke:currentColor;stroke-width:1.8;
 }
 
 /* Projects v2 */
-.project.featured{grid-column:1/-1;border-color:var(--accent)}
-.project h3{display:flex;flex-wrap:wrap;gap:.5rem .75rem;align-items:center}
 .badge{font-size:.75rem;font-weight:600;padding:.2rem .65rem;border-radius:999px;background:var(--accent);color:var(--on-accent)}
 .badge.soft{background:transparent;border:1px solid var(--accent);color:var(--accent)}
 .meta{display:grid;gap:.25rem;margin:0 0 1rem;font-size:.92rem}
 .meta div{display:flex;gap:.75rem}
 .meta dt{min-width:5.5rem;color:var(--muted)}
 .meta dd{margin:0}
-.project .btn-row{margin-top:auto}
-.project .chips{margin:0 0 1.5rem}
 .small{font-size:.85rem}
 /* Modal */
 .modal{position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding:1rem;background:rgba(2,6,23,.7)}
 .modal[hidden]{display:none}
-.modal-box{display:flex;flex-direction:column;width:min(960px,100%);height:min(90vh,900px);background:var(--bg);border:1px solid var(--line);border-radius:14px;overflow:hidden}
 .modal-head{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border-bottom:1px solid var(--line)}
 .modal-head h2{flex:1;font-size:1.05rem;margin:0}
-.modal-box object{flex:1;width:100%;border:0}
-.modal-fallback{padding:1.5rem;color:var(--muted)}
 /* Case study */
 .cs-hero{padding:5rem 0 3rem;border-bottom:1px solid var(--line)}
 .cs-hero h1{font-size:clamp(2.2rem,6vw,3.8rem);font-weight:800;max-width:18ch}
@@ -150,3 +149,27 @@ svg{width:1.25rem;height:1.25rem;fill:none;stroke:currentColor;stroke-width:1.8;
 .arch-link{text-align:center;color:var(--accent);font-size:.9rem;font-weight:600}
 .two-col{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:1.5rem}
 .cs-nav{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:2rem}
+
+/* Next steps */
+.next-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem;margin-top:1.5rem}
+.next-card p{margin:0}
+@media (max-width:700px){.next-grid{grid-template-columns:1fr}}
+.project p{color:var(--muted);margin:0 0 1rem}
+.project .chips{margin:0 0 1rem}
+.project .btn-row{margin-top:0}
+.project .meta{margin-bottom:.75rem}
+@media (max-width:700px){.projects-grid{grid-template-columns:1fr}.project.featured{grid-column:auto}}
+/* Certificates */
+#certGrid{grid-template-columns:repeat(3,1fr)}
+@media (max-width:900px){#certGrid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:600px){#certGrid{grid-template-columns:1fr}}
+.btn.solid{background:#60A5FA;color:#0B1220;border-color:#60A5FA;font-weight:600}
+.btn.solid:hover{background:#7DB6FB;border-color:#7DB6FB}
+.btn.solid:focus-visible{outline:2px solid var(--text);outline-offset:3px}
+.modal-box{display:flex;flex-direction:column;width:min(1000px,100%);max-height:92vh;background:var(--bg);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.modal-body{flex:1;min-height:0;overflow:auto;padding:1rem;background:var(--bg2)}
+.cert-img{display:block;margin:0 auto;max-width:100%;max-height:calc(92vh - 10rem);width:auto;height:auto;object-fit:contain;border-radius:8px;cursor:zoom-in}
+.cert-img.zoomed{max-width:none;max-height:none;width:200%;cursor:zoom-out}
+.modal-foot{display:flex;flex-wrap:wrap;align-items:center;gap:.75rem;padding:.75rem 1rem;border-top:1px solid var(--line)}
+.modal-foot .spacer{flex:1}
+@media (max-width:600px){.modal-foot .spacer{display:none}.modal-foot .btn{flex:1;justify-content:center}}

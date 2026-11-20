@@ -1,8 +1,9 @@
 (function () {
   "use strict";
 
-  // Add future certificates here. Place the PDF in the certificates folder.
+  // Add future certificates here. "file" (PDF) is optional; without it the popup offers a PNG download.
   var certificates = [
+    { title: "National Certificate III — Visual Graphic Design", png: "certificates/NC3.png" },
     { title: "HTML Essentials", file: "certificates/HTMLEssentialsv1.pdf", png: "certificates/HTMLEssentialsv1-1.png" },
     { title: "CSS Essentials", file: "certificates/CSSEssentialsv1.pdf", png: "certificates/CSSEssentialsv1-1.png" },
     { title: "Python Essentials 1", file: "certificates/PythonEssentials1.pdf", png: "certificates/PythonEssentials1-1.png" },
@@ -92,8 +93,14 @@
     mImg.alt = c.title + " certificate";
     mImg.src = c.png;
     setZoom(false);
-    document.getElementById("certOpen").href = c.file;
-    document.getElementById("certDownload").href = c.file;
+    var hasPdf = !!c.file;
+    var open = document.getElementById("certOpen");
+    var dl = document.getElementById("certDownload");
+    var imgDl = document.getElementById("certImgDownload");
+    open.hidden = dl.hidden = !hasPdf;
+    imgDl.hidden = hasPdf;
+    if (hasPdf) { open.href = c.file; dl.href = c.file; imgDl.removeAttribute("href"); }
+    else { imgDl.href = c.png; open.removeAttribute("href"); dl.removeAttribute("href"); }
     modal.hidden = false;
     document.body.style.overflow = "hidden";
     document.getElementById("certClose").focus();
@@ -115,7 +122,7 @@
       if (modal.hidden) return;
       if (e.key === "Escape") { closeModal(); return; }
       if (e.key === "Tab") {
-        var f = modal.querySelectorAll('a[href], button, [tabindex="0"]');
+        var f = Array.prototype.filter.call(modal.querySelectorAll('a[href], button, [tabindex="0"]'), function (n) { return !n.hidden; });
         var first = f[0], last = f[f.length - 1];
         if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
         else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }

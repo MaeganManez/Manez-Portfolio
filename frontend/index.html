@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MM Portfolio</title>
 <meta name="description" content="Portfolio of Maegan Elaine S. Mañez, a third-year Computer Science student at Gordon College.">
-<link rel="icon" type="image/png" href="./assets/mm-logo.png?v=5">
+<link rel="icon" type="image/png" href="assets/mm-logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -138,14 +138,22 @@
     <h2>Contact</h2>
     <p class="section-intro">Select any item below to get in touch.</p>
     <div class="grid two">
-      <a class="card contact" href="mailto:manezmaegan06@gmail.com">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
-        <span><strong>Personal Email</strong>manezmaegan06@gmail.com</span>
-      </a>
-      <a class="card contact" href="mailto:202410089@gordoncollege.edu.ph">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11.5V16c0 1.5 3 3 6 3s6-1.5 6-3v-4.5"/></svg>
-        <span><strong>School Email</strong>202410089@gordoncollege.edu.ph</span>
-      </a>
+      
+<a class="card contact" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=manezmaegan06%40gmail.com" target="_blank" rel="noopener noreferrer">
+  <svg viewBox="0 0 24 24" aria-hidden="true">
+    <rect x="3" y="5" width="18" height="14" rx="2"/>
+    <path d="M3 7l9 6 9-6"/>
+  </svg>
+  <span><strong>Personal Email</strong>manezmaegan06@gmail.com</span>
+</a>
+
+<a class="card contact" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=202410089%40gordoncollege.edu.ph" target="_blank" rel="noopener noreferrer">
+  <svg viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M2 9l10-5 10 5-10 5z"/>
+    <path d="M6 11.5V16c0 1.5 3 3 6 3s6-1.5 6-3v-4.5"/>
+  </svg>
+  <span><strong>School Email</strong>202410089@gordoncollege.edu.ph</span>
+</a>
       <a class="card contact" href="tel:+639205269369">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
         <span><strong>Phone</strong>09205269369</span>
@@ -184,6 +192,7 @@
       <span class="spacer"></span>
       <a class="btn solid" id="certOpen" target="_blank" rel="noopener noreferrer">Open PDF</a>
       <a class="btn ghost" id="certDownload" download>Download PDF</a>
+      <a class="btn ghost" id="certImgDownload" download hidden>Download Image</a>
     </div>
   </div>
 </div>

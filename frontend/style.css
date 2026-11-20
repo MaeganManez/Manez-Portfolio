@@ -173,3 +173,4 @@ svg{width:1.25rem;height:1.25rem;fill:none;stroke:currentColor;stroke-width:1.8;
 .modal-foot{display:flex;flex-wrap:wrap;align-items:center;gap:.75rem;padding:.75rem 1rem;border-top:1px solid var(--line)}
 .modal-foot .spacer{flex:1}
 @media (max-width:600px){.modal-foot .spacer{display:none}.modal-foot .btn{flex:1;justify-content:center}}
+.btn[hidden]{display:none}
